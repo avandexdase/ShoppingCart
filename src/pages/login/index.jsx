@@ -1,27 +1,34 @@
 import React from 'react';
 import CustomForm from '../../components/CustomForm';
+import { useNavigate } from 'react-router-dom';
 import { loginFields, loginInitValues } from './loginFields';
+import axiosInstance from '../../utils/axiosInstance';
 
 function Login() {
+  const navigate = useNavigate();
+  function btnSubmit() {}
+  const handleLogin = async (values, actions) => {
+    try {
+      const res = await axiosInstance.post('/login', {
+        email: values.email,
+        password: values.password,
+      });
+      console.log('res', values, res.data);
+      actions.resetForm();
+      navigate('/home');
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="grid grid-cols-8 py-8 px-8">
-      <div className="col-start-2 col-span-3">
-        <h1 className="text-2xl font-bold tracking-tight mb-6">Login</h1>
-        <p className="lg:text-sm tracking-tight text-xs">
-          Get Access to your Orders, Wishlist and Recommendations
-        </p>
-      </div>
-      <div className="col-start-5 col-end-7">
-        {' '}
-        <CustomForm
-          initialValues={loginInitValues}
-          onSubmit={(values) => {
-            console.log(values);
-          }}
-          fields={loginFields}
-          btnTitle="Login"
-        />
-      </div>
+      <CustomForm
+        initialValues={loginInitValues}
+        onSubmit={handleLogin}
+        fields={loginFields}
+        btnTitle="Login"
+        pagedescription="Get Access to your Orders, Wishlist and Recommendations"
+      />
     </div>
   );
 }

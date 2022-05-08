@@ -16,6 +16,9 @@ module.exports = {
     },
     btnColor: {
       'red':'#c91e50',
+    },
+    width: {
+      '400': '400px'
     }
   },
   plugins: [require('@tailwindcss/forms'), require('@tailwindcss/line-clamp')],

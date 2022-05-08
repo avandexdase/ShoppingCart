@@ -1,5 +1,6 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import Product from '../../components/Product';
+import CategoriesType from '../../components/Product/categoriesType';
 import { ThemeContext } from '../../context/themeContext';
 import axiosInstance from '../../utils/axiosInstance';
 
@@ -25,21 +26,16 @@ function Products() {
   }, [loadData]);
 
   return (
-    <>
-      <ThemeContext.Consumer>
-        {(value) => (
-          <p>
-            Current Theme is
-            {value.theme}
-          </p>
-        )}
-      </ThemeContext.Consumer>
-      <div className="grid grid-cols-auto-fit gap-4">
+    <div className="grid grid-cols-5">
+      <div className="grid-start-1 grid-span-1">
+        <CategoriesType />
+      </div>
+      <div className="col-span-4 grid grid-cols-auto-fit gap-4">
         {products.map((item) => (
           <Product key={item.id} product={item} addToCart={addToCart} />
         ))}
       </div>
-    </>
+    </div>
   );
 }
 
