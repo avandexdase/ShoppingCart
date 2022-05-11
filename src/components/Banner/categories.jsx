@@ -6,12 +6,10 @@ function Categories({ data, index }) {
   return (
     <div
       key={data.id}
-      className={`flex flex-row py-6 ${
-        index ===0 || index % 2 == 0 ? '' : 'flex-row-reverse'
-      } shadow-[0_20px_45px_-15px_rgba(0,0,0,0.3)]`}
+      className="home_categories"
     >
       <img
-        className="basis-2/6 px-4 sm:h-40 md:h-56 w-[400px]"
+        className="category_img"
         src={data.imageUrl}
         alt={data.name}
       />

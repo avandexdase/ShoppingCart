@@ -27,7 +27,7 @@ function TextInput({
           <p className="form-field__error">{errors[name]}</p>
         )}
       </div>
-      <div class="form-field__bar"></div>
+      <div className="form-field__bar"></div>
     </div>
   );
 }

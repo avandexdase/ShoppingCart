@@ -1,7 +1,9 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ShoppingCartIcon from '../../assets/icons/shopping_cart.svg';
-
+// import ShoppingCartIcon from '../../assets/icons/shopping_cart.svg';
+import logo from '../../../static/images/logo.png'
+import logo2x from '../../../static/images/logo_2x.png'
 function Header() {
   return (
     <header>
@@ -9,13 +11,13 @@ function Header() {
         <div className="logo">
           <picture>
             <source
-              srcset="../../../static/images/logo.png"
+              srcSet={logo}
               media="(min-width: 600px)"
             />
             <img
-              src="../../../static/images/logo.png"
+              src={logo2x}
               alt="Logo"
-              class="logoImg"
+              className="logoImg"
             />
           </picture>
         </div>
@@ -33,22 +35,22 @@ function Header() {
             </li>
           </ul>
         </nav>
-        <div className="">
-          <ul class="nav-list">
-            <li class="nav-item">
-              <Link to="/" className="nav-link">
-                Sign In
+        <div className="sign-list">
+          <ul className="sign-nav-list">
+            <li className="sign-nav-item">
+              <Link to="/" className="sign-nav-link">
+                SignIn
               </Link>
             </li>
-            <li class="nav-item">
+            <li className="sign-nav-item">
               {' '}
-              <Link to="/register" className="nav-link">
+              <Link to="/register" className="sign-nav-link">
                 Register
               </Link>
             </li>
           </ul>
-          <div className="">
-            <ShoppingCartIcon height={24} width={24} fill="green" />
+          <div id="cart" className="">
+            {/* <ShoppingCartIcon height={24} width={24} fill="green" /> */}
             <span className="">0 Items</span>
           </div>
         </div>
@@ -56,5 +58,4 @@ function Header() {
     </header>
   );
 }
-
 export default Header;

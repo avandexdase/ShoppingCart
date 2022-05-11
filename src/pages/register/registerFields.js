@@ -7,6 +7,18 @@ export const requiredValidate = (value) => {
   return '';
 };
 
+export const requiredValidatePsw = (value) => {
+  var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+  if (!value) {
+    return 'Required....';
+  } else if(value.lenght <= 6) {
+    return 'Please enter strong password'
+  } else if(!value.match(passw)){
+    return 'Please include one uppercase, number and special character'
+  }
+  return '';
+};
+
 export const compareValidate = (value, compareValue) => {
   if (value !== compareValue) {
     return 'not matched...';
@@ -51,7 +63,7 @@ export const registerFields = [
     autoComplete: 'new-password',
     label: 'Password',
     type: 'password',
-    validate: requiredValidate,
+    validate: requiredValidatePsw,
   },
   {
     component: TextInput,
@@ -60,6 +72,6 @@ export const registerFields = [
     label: 'Confirm Password',
     type: 'password',
     validate: (value) =>
-      requiredValidate(value) || compareValidate(value, password.value),
+    requiredValidatePsw(value) || compareValidate(value, password.value),
   },
 ];

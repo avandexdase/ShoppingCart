@@ -7,7 +7,9 @@ function MainLayout() {
   return (
     <div>
       <Header />
+      <div className='container'>
       <Outlet />
+      </div>
       <Footer />
     </div>
   );
