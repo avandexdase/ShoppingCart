@@ -7,14 +7,12 @@ function TextInput({
   ...props
 }) {
   return (
-    <div>
-      <label htmlFor={name}>
-        {label}
-        <br />
+    <div className="form-field">
+      <div className="form-field__control">
         <input
           type="text"
-          // className="focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
-          className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+          className="form-field__input"
+          placeholder=' '
           name={name}
           id={name}
           value={value}
@@ -22,10 +20,14 @@ function TextInput({
           onBlur={onBlur}
           {...props}
         />
-      </label>
-      {touched[name] && errors[name] && (
-        <p className="text-red-400 text-sm">{errors[name]}</p>
-      )}
+        <label htmlFor={name} className="form-field__label">
+          {label}
+        </label>
+        {touched[name] && errors[name] && (
+          <p className="form-field__error">{errors[name]}</p>
+        )}
+      </div>
+      <div class="form-field__bar"></div>
     </div>
   );
 }

@@ -1,10 +1,11 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path");
 
 module.exports = {
-  entry: './src/index.jsx',
+  entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, "build"),
+    filename: "bundle.js",
     filename: 'main.js',
     publicPath: '/',
   },
@@ -20,19 +21,14 @@ module.exports = {
         use: 'babel-loader',
       },
       {
-        test: /\.css$/,
+        test: /\.(png|svg|jpe?g|gif|ico)$/,
         exclude: /node_modules/,
-        use: ['style-loader', 'css-loader'],
+        use: ["file-loader?name=[name].[ext]"],
       },
       {
         test: /\.s[ac]ss$/i,
         exclude: /node_modules/,
-        use: ['style-loader', 'css-loader', 'sass-loader', 'postcss-loader'],
-      },
-      {
-        test: /\.(png|jpe?g|gif)$/i,
-        exclude: /node_modules/,
-        use: 'file-loader',
+        use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
       },
       {
         test: /\.svg$/i,
@@ -43,15 +39,18 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html',
-      filename: 'index.html',
+      template: "./public/index.html",
+      filename: "index.html",
     }),
   ],
+  mode: "development",
   devServer: {
     static: {
-      directory: path.resolve(__dirname, './static'),
-      publicPath: '/static',
+      directory: path.join(__dirname, "assets"),
+      publicPath: "/assets",
     },
-    historyApiFallback: true,
+    compress: true,
+    port: 9000,
+    open: true,
   },
 };

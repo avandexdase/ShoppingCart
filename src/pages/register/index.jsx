@@ -18,7 +18,7 @@ function Register() {
     }
   };
   return (
-    <div className="grid grid-cols-8 py-8 px-8">
+    <div id="register" className="container">
       <CustomForm
         initialValues={registerInitValues}
         onSubmit={handleRegister}

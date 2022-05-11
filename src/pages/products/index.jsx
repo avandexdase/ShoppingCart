@@ -26,11 +26,11 @@ function Products() {
   }, [loadData]);
 
   return (
-    <div className="grid grid-cols-5">
-      <div className="grid-start-1 grid-span-1">
+    <div className="md:grid md:grid-cols-5 sm:block">
+      <div className="grid-start-1 grid-span-1 bg-neutral-200">
         <CategoriesType />
       </div>
-      <div className="col-span-4 grid grid-cols-auto-fit gap-4">
+      <div className="col-span-4 grid md:grid-cols-4 sm:grid-cols-2 gap-4 px-6 py-6">
         {products.map((item) => (
           <Product key={item.id} product={item} addToCart={addToCart} />
         ))}

@@ -28,8 +28,8 @@ function Home() {
     <>
       <Banner banner={bannersData}/>
       <div className="grid grid-cols-1 gap-10 mx-6">
-        {products.map((each) => (
-          <Categories key={each.id} data={each} />
+        {products.map((each, index) => (
+          <Categories key={each.id} data={each} index={index}/>
         ))}
       </div>
     </>

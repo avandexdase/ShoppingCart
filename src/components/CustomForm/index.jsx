@@ -4,11 +4,11 @@ import React from 'react';
 function CustomForm({ fields, btnTitle, pagedescription, ...props }) {
   return (
     <>
-      <div className="col-start-2 col-span-3">
-        <h1 className="text-2xl font-bold tracking-tight mb-6">{btnTitle}</h1>
-        <p className="lg:text-sm tracking-tight text-xs">{pagedescription}</p>
+      <div className="">
+        <h1 className="">{btnTitle}</h1>
+        <p className="">{pagedescription}</p>
       </div>
-      <div className="col-start-5 col-end-7">
+      <div className="">
         <Formik {...props}>
           {({ handleSubmit, isValid, dirty }) => (
             <form onSubmit={handleSubmit}>
@@ -17,7 +17,7 @@ function CustomForm({ fields, btnTitle, pagedescription, ...props }) {
               ))}
               <button
                 type="submit"
-                className="disabled:bg-slate-400 mt-1 px-3 py-2 block w-full sm:text-sm bg-[#c91e50] text-white"
+                className="btn"
                 disabled={!(dirty && isValid)}
               >
                 {btnTitle}

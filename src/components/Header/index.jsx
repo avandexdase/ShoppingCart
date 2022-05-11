@@ -4,43 +4,53 @@ import ShoppingCartIcon from '../../assets/icons/shopping_cart.svg';
 
 function Header() {
   return (
-    <header className="flex p-4 shadow-md items-end">
-      <div>
-        <img
-          src="../../../static/images/logo.png"
-          alt="logo"
-          className="max-w-[75%]"
-        />
-      </div>
-      <nav className="flex-1 px-8 hidden md:block pb-3">
-        <ul className="flex gap-4">
-          <li className="text-xl">
-            <Link to="/home" className="hover:no-underline">
-              Home
-            </Link>
-          </li>
-          <li className="text-xl">
-            <Link to="/products" className="hover:no-underline">
-              Products
-            </Link>
-          </li>
-        </ul>
-      </nav>
-      <div className="flex gap-4 pb-3">
-        <div className="hidden md:block text-xl">
-          <Link to="/" className="hover:no-underline">
-            Sign In
-          </Link>
+    <header>
+      <div className="wrapper">
+        <div className="logo">
+          <picture>
+            <source
+              srcset="../../../static/images/logo.png"
+              media="(min-width: 600px)"
+            />
+            <img
+              src="../../../static/images/logo.png"
+              alt="Logo"
+              class="logoImg"
+            />
+          </picture>
         </div>
-        <div className="hidden md:block text-xl">
-          <Link to="/register" className="hover:no-underline">
-            Register
-          </Link>
-        </div>
-        <div className="flex gap-2">
-          <div className="sr-only">Cart</div>
-          <ShoppingCartIcon height={24} width={24} fill="green" />
-          <span className="text-xl">0 Items</span>
+        <nav className="">
+          <ul className="nav-list">
+            <li className="nav-item">
+              <Link to="/home" className="nav-link">
+                Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/products" className="nav-link">
+                Products
+              </Link>
+            </li>
+          </ul>
+        </nav>
+        <div className="">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <Link to="/" className="nav-link">
+                Sign In
+              </Link>
+            </li>
+            <li class="nav-item">
+              {' '}
+              <Link to="/register" className="nav-link">
+                Register
+              </Link>
+            </li>
+          </ul>
+          <div className="">
+            <ShoppingCartIcon height={24} width={24} fill="green" />
+            <span className="">0 Items</span>
+          </div>
         </div>
       </div>
     </header>

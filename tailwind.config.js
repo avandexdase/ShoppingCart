@@ -1,6 +1,12 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx}'],
   theme: {
+    // screens: {
+    //   sm: '625px',
+    //   md: '1000px',
+    //   lg: '1250px',
+    //   xl: '1440px',
+    // },
     extend: {
       gridTemplateColumns: {
         'auto-fit': 'repeat(auto-fit, minmax(300px, 1fr))',

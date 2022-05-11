@@ -21,7 +21,7 @@ function Login() {
     }
   };
   return (
-    <div className="grid grid-cols-8 py-8 px-8">
+    <div id="login" className="container">
       <CustomForm
         initialValues={loginInitValues}
         onSubmit={handleLogin}
