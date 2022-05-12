@@ -3,6 +3,7 @@ import Categories from '../../components/Banner/categories';
 import { ThemeContext } from '../../context/themeContext';
 import axiosInstance from '../../utils/axiosInstance';
 import Banner from '../../components/Banner/banner';
+import '../../styles/_home.scss'
 
 function Home() {
   const [products, setProducts] = useState([]);
@@ -10,7 +11,6 @@ function Home() {
 
   const loadData = useCallback(async () => {
     try {
-      console.log('rnder callback');
       const bannerRes = await axiosInstance.get('banners');
       setBannersData(bannerRes.data);
       const res = await axiosInstance.get('categories');

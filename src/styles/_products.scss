@@ -1,4 +1,106 @@
-@use "colorsVar";
+@use 'colorsVar';
 
+.product {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: 60px_200px_100px_40px;
+  gap: 2rem;
+  flex: 1;
+  padding: 0 1rem;
 
+  @media screen and (max-width: 640px) {
+    grid-template-rows: 60px_300px_100px_50px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 
+  @media screen and (max-width: 324px) {
+    grid-template-rows: 60px_200px_100px_0px;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+.product_card {
+  &__name {
+    grid-column: span 2 / span 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0.5rem;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  &__img {
+    width: -webkit-fill-available;
+    grid-row: span 3 / span 3;
+
+    @media screen and (max-width: 640px) {
+      grid-row: span 2 / span 2;
+    }
+
+    @media screen and (max-width: 340px) {
+      grid-row: span 1 / span 1;
+      grid-column: span 2 / span 2;
+    }
+  }
+
+  &__desc {
+    padding: 0.5rem;
+    background-color: rgb(209 213 219);
+
+    @media screen and (min-width: 640px) {
+      grid-column: span 2 / span 2;
+    }
+  }
+
+  &__desc-content {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__btn {
+    display: none;
+
+    @media screen and (min-width: 640px) {
+      display: block;
+    }
+  }
+
+  &__sm-btn {
+    @media screen and (min-width: 640px) {
+      grid-column: span 2 / span 2;
+      display: none;
+    }
+  }
+}
+
+.categoryType {
+  // padding: 2.5rem;
+  background-color: colorsVar.$background-color;
+
+  &__ul {
+    border-top-width: 0px;
+    border-bottom-width: 1px;
+    border-color: rgb(226 232 240);
+    display: block;
+    margin: 0;
+    padding: 1rem;
+
+    @media screen and (max-width: 740px) {
+      display: none;
+    }
+  }
+
+  &__li {
+    padding: 0.25rem;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+
+.productPage {
+  display: flex;
+  padding: 0 0 1rem 0;
+}

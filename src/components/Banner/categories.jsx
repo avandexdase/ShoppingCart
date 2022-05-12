@@ -1,27 +1,28 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 function Categories({ data, index }) {
+  const navigate = useNavigate();
+  const handleSubmit= (each)=>{
+    navigate('/products',{state:{id:each.id}});
+  }
   return (
     <div
       key={data.id}
       className="home_categories"
     >
       <img
-        className="category_img"
+        className="home_categories__img"
         src={data.imageUrl}
         alt={data.name}
       />
       {/* <div className="col-start-4 col-span-1 sm:hidden"></div> */}
-      <div className="basis-4/6 px-6 flex justify-center flex-col items-center">
-        <h2 className="md:text-2xl sm:text-sm font-bold">{data.name}</h2>
-        <p className="md:text-xl sm:text-base text-center">{data.description}</p>
-        <button className="mt-1 px-3 py-2 block w-full sm:text-xs bg-[#c91e50] text-white">
-          <Link
-            to="/products"
-            className="hover:no-underline hover:text-inherit sm:text-xs"
-          >{`explore ${data.key}`}</Link>
+      <div className="home_categories__Item">
+        <h2 className="home_categories__Name">{data.name}</h2>
+        <p className="home_categories__desc">{data.description}</p>
+        <button className="home_categories__explorebtn" onClick={()=>handleSubmit(data)}>
+
+          {`explore ${data.key}`}
         </button>
       </div>
     </div>

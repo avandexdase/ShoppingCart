@@ -10,7 +10,6 @@ function Register() {
     try {
       const { confirm_password, ...rest } = values;
       const res = await axiosInstance.post('register', rest);
-      console.log('res', res.data);
       actions.resetForm();
       navigate('/', { replace: true });
     } catch (error) {

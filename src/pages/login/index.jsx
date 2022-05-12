@@ -6,14 +6,12 @@ import axiosInstance from '../../utils/axiosInstance';
 
 function Login() {
   const navigate = useNavigate();
-  function btnSubmit() {}
   const handleLogin = async (values, actions) => {
     try {
       const res = await axiosInstance.post('/login', {
         email: values.email,
         password: values.password,
       });
-      console.log('res', values, res.data);
       actions.resetForm();
       navigate('/home');
     } catch (error) {

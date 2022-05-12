@@ -1,58 +1,57 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, memo } from 'react';
+import PropTypes from 'prop-types';
+import { Link, useNavigate } from 'react-router-dom';
 
-function CategoriesType() {
+function CategoriesType({ data }) {
   const [isActive, setIsActive] = useState(false);
+  const navigate = useNavigate();
+  const handleSubmit = (each) => {
+    navigate('/products', { state: { id: each.id } });
+  };
   return (
-    <div className="px-10 py-10">
+    <div className="">
       <div className="">
         <div
-          className={`accordion-title md:hidden ${
-            isActive ? 'hidden' : ''
-          } `}
+          // className={`accordion-title md:hidden  `}
+          style={{display:isActive ? 'hidden' : ''}}
           onClick={() => {
-            debugger;
             setIsActive(!isActive);
           }}
-        >
-          <div>title</div>
-        </div>
+        ></div>
 
         <ul
-          className={`divide-y divide-slate-200 md:block ${
-            isActive ? '' : 'hidden'
-          } `}
+          className="categoryType__ul"
+          style={{display:isActive ? '' : 'hidden'}}
           onClick={() => setIsActive(!isActive)}
         >
-          <li className="text-xl px-4 py-4">
-            <Link to="/products" className="hover:no-underline">
-              Beverages
-            </Link>
-          </li>
-          <li className="text-xl px-4 py-4">
-            <Link to="/products" className="hover:no-underline">
-              Bakery Cakes and Dairy
-            </Link>
-          </li>
-          <li className="text-xl px-4 py-4">
-            <Link to="/products" className="hover:no-underline">
-              Beauty and Hygiene
-            </Link>
-          </li>
-          <li className="text-xl px-4 py-4">
-            <Link to="/products" className="hover:no-underline">
-              Baby Care
-            </Link>
-          </li>
-          <li className="text-xl px-4 py-4">
-            <Link to="/products" className="hover:no-underline">
-              Fruits & Vegetables
-            </Link>
-          </li>
+          {data.map((each) => (
+            <li
+              className="categoryType__li"
+              key={each.key}
+              onClick={() => {
+                handleSubmit(each);
+              }}
+            >
+              {each.name}
+            </li>
+          ))}
         </ul>
       </div>
     </div>
   );
 }
 
-export default CategoriesType;
+CategoriesType.propTypes = {
+  data: PropTypes.exact({
+    name: PropTypes.string,
+    key: PropTypes.string,
+    description: PropTypes.string,
+    enabled: PropTypes.bool,
+    order: PropTypes.number,
+    imageUrl: PropTypes.string,
+    id: PropTypes.string,
+  }),
+  index: PropTypes.number,
+};
+
+export default memo(CategoriesType);
