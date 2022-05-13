@@ -10,14 +10,16 @@ header {
   background-color: #fff;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 
-  > .wrapper {
+  >.wrapper {
     display: flex;
     align-items: center;
     @extend .container;
+
     .logoImg {
       height: 3rem;
       padding: 1rem 0;
     }
+
     nav {
       flex: 1;
       padding: 0 2rem;
@@ -27,35 +29,42 @@ header {
 }
 
 
-  #register, #login {
-    display: flex;
-    padding: 2rem 0;
-    div {
-      flex: 1;
-    }
-    h1 {
-      font-family: "poppinsbold", sans-serif;
-      font-size: 24px;
-      font-weight: bold;
-    }
-    h2 {
-      font-family: "poppinsextralight", sans-serif;
-      font-size: 24px;
-      font-weight: bold;
-    }
+#register,
+#login {
+  display: flex;
+  padding: 2rem 0;
+
+  div {
+    flex: 1;
   }
+
+  h1 {
+    font-family: "poppinsbold", sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  h2 {
+    font-family: "poppinsextralight", sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+  }
+}
 
 
 footer {
   background-color: colorsVar.$background-color;
   padding: 0.625rem;
+
   .main-footer {
     @extend .container;
   }
 }
 
-@media screen and (max-width: 535px){
-  #register, #login {
+@media screen and (max-width: 535px) {
+
+  #register,
+  #login {
     flex-direction: column;
   }
-  }
+}

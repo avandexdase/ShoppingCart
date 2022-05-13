@@ -64,18 +64,21 @@ li.sign-nav-item:nth-child(2) {
   display: none;
   justify-content: center;
   align-items: center;
+
   @media screen and (max-width: 1240px) {
-      display: flex;
+    display: flex;
   }
 }
+
 #dropdowncart {
   background-color: colorsVar.$background-color;
   height: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
+
   @media screen and (max-width: 1240px) {
-      display: none
+    display: none
   }
 }
 

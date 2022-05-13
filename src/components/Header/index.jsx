@@ -46,7 +46,11 @@ function Header() {
               </Link>
             </li>
           </ul>
-          <div id="dropdowncart" className="sign-nav-cart" onClick={toggleIsCartOpen}>
+          <div
+            id="dropdowncart"
+            className="sign-nav-cart"
+            onClick={toggleIsCartOpen}
+          >
             {/* <ShoppingCartIcon height={24} width={24} fill="green" /> */}
             <span>{`${cartCount}Items`}</span>
           </div>
@@ -55,7 +59,9 @@ function Header() {
             <Link to="/cart">{`${cartCount}Items`}</Link>
           </div>
         </div>
-        <div className='sign-nav-cartDropdown'>{isCartOpen && <CartDropdown />}</div>
+        <div className="sign-nav-cartDropdown">
+          {isCartOpen && <CartDropdown />}
+        </div>
       </div>
     </header>
   );

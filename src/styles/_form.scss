@@ -65,17 +65,18 @@
     border-bottom: 1px solid #999;
 
     &:placeholder-shown {
-      ~ .form-field__label {
+      ~.form-field__label {
         @include label-inactive();
       }
     }
 
     &:focus {
-      ~ .form-field__label {
+      ~.form-field__label {
         color: colorsVar.$primary-color;
         @include label-active();
       }
-      ~ .form-field__bar {
+
+      ~.form-field__bar {
         border-bottom: 2px solid colorsVar.$primary-color;
         transform: scaleX(150);
       }

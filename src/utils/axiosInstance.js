@@ -6,5 +6,4 @@ const axiosInstance = axios.create({
   timeoutErrorMessage: 'Request Timeout! Please try after sometime',
 });
 
-
 export default axiosInstance;

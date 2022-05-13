@@ -30,7 +30,7 @@ function CategoriesType({ data, currentCategory, loadCondProductData }) {
                 loadCondProductData(each.id);
               }}
             >
-                {each.name}
+              {each.name}
             </li>
           ))}
         </ul>

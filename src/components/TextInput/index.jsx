@@ -12,7 +12,7 @@ function TextInput({
         <input
           type="text"
           className="form-field__input"
-          placeholder=' '
+          placeholder=" "
           name={name}
           id={name}
           value={value}

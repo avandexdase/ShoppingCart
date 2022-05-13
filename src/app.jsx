@@ -6,7 +6,7 @@ import Home from './pages/home';
 import Login from './pages/login';
 import Products from './pages/products';
 import Register from './pages/register';
-import "./styles/index.scss";
+import './styles/index.scss';
 
 function App() {
   return (
