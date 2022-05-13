@@ -1,27 +1,25 @@
 import React, { useState, memo } from 'react';
 import PropTypes from 'prop-types';
-import { Link, useNavigate } from 'react-router-dom';
 
-function CategoriesType({ data }) {
+function CategoriesType({ data, currentCategory, loadCondProductData }) {
   const [isActive, setIsActive] = useState(false);
-  const navigate = useNavigate();
-  const handleSubmit = (each) => {
-    navigate('/products', { state: { id: each.id } });
-  };
+
   return (
     <div className="">
       <div className="">
         <div
-          // className={`accordion-title md:hidden  `}
-          style={{display:isActive ? 'hidden' : ''}}
+          style={{ display: isActive ? 'hidden' : '' }}
+          className="categoryType__accordian"
           onClick={() => {
             setIsActive(!isActive);
           }}
-        ></div>
+        >
+          {currentCategory ? currentCategory : 'select category'}
+        </div>
 
         <ul
           className="categoryType__ul"
-          style={{display:isActive ? '' : 'hidden'}}
+          style={{ display: isActive ? 'block' : 'hidden' }}
           onClick={() => setIsActive(!isActive)}
         >
           {data.map((each) => (
@@ -29,10 +27,10 @@ function CategoriesType({ data }) {
               className="categoryType__li"
               key={each.key}
               onClick={() => {
-                handleSubmit(each);
+                loadCondProductData(each.id);
               }}
             >
-              {each.name}
+                {each.name}
             </li>
           ))}
         </ul>
@@ -42,16 +40,10 @@ function CategoriesType({ data }) {
 }
 
 CategoriesType.propTypes = {
-  data: PropTypes.exact({
-    name: PropTypes.string,
-    key: PropTypes.string,
-    description: PropTypes.string,
-    enabled: PropTypes.bool,
-    order: PropTypes.number,
-    imageUrl: PropTypes.string,
-    id: PropTypes.string,
-  }),
+  data: PropTypes.array,
   index: PropTypes.number,
+  currentCategory: PropTypes.string,
+  loadCondProductData: PropTypes.func,
 };
 
 export default memo(CategoriesType);

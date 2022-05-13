@@ -52,6 +52,7 @@
     }
   }
   &__explorebtn {
+    cursor: pointer;
     background-color: colorsVar.$btn-background-color;
     padding: 0.75rem;
     border: none;

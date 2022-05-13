@@ -20,16 +20,17 @@ function Products() {
         res = await axiosInstance.get('products');
       }
       category = await axiosInstance.get('categories');
-      setCategoryData(category.data)
+      setCategoryData(category.data);
       setProducts(res.data);
-    } catch (error) {
-      console.log(error.message);
-    }
+    } catch (error) {}
   }, []);
-
-  const addToCart = useCallback(() => {
-    console.log('add to cart');
-  }, []);
+  const loadCondProductData = useCallback(async (id) => {
+    let prod = {};
+    try {
+      prod = await axiosInstance.get(`products?category=${id}`);
+      setProducts(prod.data);
+    } catch (error) {}
+  });
 
   useEffect(() => {
     loadData();
@@ -38,11 +39,14 @@ function Products() {
   return (
     <div className="productPage">
       <div className="categoryType">
-        <CategoriesType data={categoryData}/>
+        <CategoriesType
+          data={categoryData}
+          loadCondProductData={loadCondProductData}
+        />
       </div>
       <div className="product">
         {products.map((item) => (
-          <Product key={item.id} product={item} addToCart={addToCart} />
+          <Product key={item.id} product={item} />
         ))}
       </div>
     </div>

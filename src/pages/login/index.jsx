@@ -14,9 +14,7 @@ function Login() {
       });
       actions.resetForm();
       navigate('/home');
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
   return (
     <div id="login" className="container">

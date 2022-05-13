@@ -12,9 +12,7 @@ function Register() {
       const res = await axiosInstance.post('register', rest);
       actions.resetForm();
       navigate('/', { replace: true });
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
   return (
     <div id="register" className="container">

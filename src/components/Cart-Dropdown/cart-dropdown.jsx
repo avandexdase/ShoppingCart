@@ -1,21 +1,28 @@
 import React, { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../../context/cartContext';
-import CartItem from '../../components/Cart/cartItem';
+import CartItem from '../Cart/cartItem';
 import '../../styles/index.scss';
-import CartFooter from '../../components/Cart/cartFooter';
+import { useNavigate } from 'react-router-dom';
+import CartFooter from '../Cart/cartFooter';
 
-export default function Cart() {
-  const { cartItems, cartTotalValue } = useContext(CartContext);
+const CartDropdown = () => {
   const navigate = useNavigate();
+  const { cartItems, isCartOpen, setIsCartOpen, cartTotalValue } =
+    useContext(CartContext);
+
+  const toggleIsCartOpen = () => setIsCartOpen(!isCartOpen);
+  const navigateToCart = () => {
+    toggleIsCartOpen();
+    navigate('/cart');
+  };
   return (
-    <div className="">
+    <div className="cart-dropdown">
       <header>
         <div className="cart-dropdown__header">
           <h2>Cart</h2>
           <button
             className="cart-dropdown__closeBtn"
-            onClick={() => navigate(-1)}
+            onClick={toggleIsCartOpen}
           >
             &#10060;
           </button>
@@ -38,17 +45,20 @@ export default function Cart() {
           <p className="cart-dropdown__promo">
             Promocode can be applied on payment page
           </p>
-          <div className="cart-dropdown__Checkoutbtn">
+          <div className="cart-dropdown__Checkoutbtn" onClick={navigateToCart}>
             <p>Proceed to Checkout</p>
             <p>{cartTotalValue}</p>
           </div>
         </footer>
       ) : (
-        <footer className="cart-dropdown__footer">
-          {' '}
-          <div className="cart-dropdown__Checkoutbtn">start shopping</div>
+        <footer>
+          <div className="cart-dropdown__Checkoutbtn" onClick={navigateToCart}>
+            start shopping
+          </div>
         </footer>
       )}
     </div>
   );
-}
+};
+
+export default CartDropdown;

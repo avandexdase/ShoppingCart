@@ -3,14 +3,11 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 function Categories({ data, index }) {
   const navigate = useNavigate();
-  const handleSubmit= (each)=>{
-    navigate('/products',{state:{id:each.id}});
-  }
+  const handleSubmit = (each) => {
+    navigate('/products', { state: { id: each.id } });
+  };
   return (
-    <div
-      key={data.id}
-      className="home_categories"
-    >
+    <div key={data.id} className="home_categories">
       <img
         className="home_categories__img"
         src={data.imageUrl}
@@ -20,8 +17,10 @@ function Categories({ data, index }) {
       <div className="home_categories__Item">
         <h2 className="home_categories__Name">{data.name}</h2>
         <p className="home_categories__desc">{data.description}</p>
-        <button className="home_categories__explorebtn" onClick={()=>handleSubmit(data)}>
-
+        <button
+          className="home_categories__explorebtn"
+          onClick={() => handleSubmit(data)}
+        >
           {`explore ${data.key}`}
         </button>
       </div>
@@ -39,7 +38,7 @@ Categories.propTypes = {
     imageUrl: PropTypes.string,
     id: PropTypes.string,
   }),
-  index:PropTypes.number
+  index: PropTypes.number,
 };
 
 export default memo(Categories);

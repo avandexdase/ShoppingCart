@@ -1,0 +1,68 @@
+@use 'colorsVar';
+
+.cart-dropdown {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    background-color: white;
+    right: 17.3rem;
+    z-index: 5;
+    top: 5.4rem;
+    width: 38%;
+
+
+    @media screen and (max-width: 1240px) {
+        display: none;
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: row;
+        background-color: black;
+        color: white;
+        justify-content: space-between;
+        padding: 0 1rem;
+    }
+
+    &__closeBtn {
+        border: none;
+        background-color: black;
+    }
+
+    &__message {
+        font-size: 18px;
+        margin: 50px auto;
+    }
+
+    &__items {
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        background-color: colorsVar.$background-color;
+    }
+
+    &__btn {
+        margin-top: auto;
+    }
+
+    &__footer {
+        margin: 1rem;
+        background-color: white;
+    }
+
+    &__promo {
+        text-align: center;
+    }
+
+    &__Checkoutbtn {
+        background-color: colorsVar.$btn-background-color;
+        border: none;
+        padding: 1rem;
+        color: white;
+        display: flex;
+        width: 94%;
+        justify-content: space-between;
+    }
+
+}

@@ -8,7 +8,10 @@
   flex: 1;
   padding: 0 1rem;
 
-  @media screen and (max-width: 640px) {
+  @media screen and (max-width: 720px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  @media screen and (max-width: 560px) {
     grid-template-rows: 60px_300px_100px_50px;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -60,12 +63,19 @@
     overflow: hidden;
   }
 
-  &__btn {
+  &__price {
     display: none;
 
     @media screen and (min-width: 640px) {
-      display: block;
+      display: flex;
     }
+  }
+
+  &__btn {
+    background-color: colorsVar.$btn-background-color;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
   }
 
   &__sm-btn {
@@ -79,6 +89,14 @@
 .categoryType {
   // padding: 2.5rem;
   background-color: colorsVar.$background-color;
+
+  &__accordian {
+    display: none;
+
+    @media screen and (max-width: 720px) {
+      display: block;
+    }
+  }
 
   &__ul {
     border-top-width: 0px;
@@ -97,10 +115,21 @@
     padding: 0.25rem;
     font-size: 1.25rem;
     line-height: 1.75rem;
+    cursor: pointer;
+
+    @media screen and (max-width: 1024px) {
+      font-size: 1rem;
+      line-height: 1.25rem;
+      padding: 0.125rem;
+    }
   }
 }
 
 .productPage {
   display: flex;
   padding: 0 0 1rem 0;
+
+  @media screen and (max-width: 740px) {
+    display: block;
+  }
 }
