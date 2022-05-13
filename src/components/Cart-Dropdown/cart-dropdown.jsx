@@ -15,6 +15,10 @@ const CartDropdown = () => {
     toggleIsCartOpen();
     navigate('/cart');
   };
+  const startShopping = () => {
+    toggleIsCartOpen();
+    navigate('/home')
+  }
   return (
     <div className="cart-dropdown">
       <header>
@@ -52,7 +56,7 @@ const CartDropdown = () => {
         </footer>
       ) : (
         <footer>
-          <div className="cart-dropdown__Checkoutbtn" onClick={navigateToCart}>
+          <div className="cart-dropdown__Checkoutbtn" onClick={startShopping}>
             start shopping
           </div>
         </footer>
