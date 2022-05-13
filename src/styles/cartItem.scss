@@ -1,11 +1,11 @@
 @use "colorsVar";
 
 .cartItem {
-    padding: 1rem;
+    padding: 0.5rem;
     display: flex;
     flex-direction: row;
     background-color: white;
-    margin: 1rem;
+    margin: 0.5rem;
 
     &__img {
         width: 100px;

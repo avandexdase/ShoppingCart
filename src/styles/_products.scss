@@ -9,7 +9,7 @@
   padding: 0 1rem;
 
   @media screen and (max-width: 720px) {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   @media screen and (max-width: 560px) {
@@ -24,6 +24,9 @@
 }
 
 .product_card {
+  border-bottom: 1px dotted rgb(209, 213, 219);
+  padding-bottom: 1rem;
+
   &__name {
     grid-column: span 2 / span 2;
     overflow: hidden;
@@ -62,10 +65,12 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    margin: 0;
   }
 
   &__price {
     display: none;
+    margin: 0.25rem;
 
     @media screen and (min-width: 640px) {
       display: flex;
@@ -77,10 +82,19 @@
     color: white;
     border: none;
     padding: 0.5rem 1rem;
+
+    @media screen and (max-width: 740px) {
+      display: none;
+    }
   }
 
   &__sm-btn {
-    @media screen and (min-width: 640px) {
+    background-color: colorsVar.$btn-background-color;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+
+    @media screen and (min-width: 740px) {
       grid-column: span 2 / span 2;
       display: none;
     }
@@ -90,11 +104,15 @@
 .categoryType {
   // padding: 2.5rem;
   background-color: colorsVar.$background-color;
+  color: white;
 
   &__accordian {
     display: none;
+    margin: 1rem 0;
+    background-color: colorsVar.$btn-background-color;
+    padding: 1rem;
 
-    @media screen and (max-width: 720px) {
+    @media screen and (max-width: 740px) {
       display: block;
     }
   }
@@ -106,9 +124,13 @@
     display: block;
     margin: 0;
     padding: 1rem;
+    color: black;
+    list-style: none;
 
     @media screen and (max-width: 740px) {
       display: none;
+      background-color: #c91e50;
+      color: white;
     }
   }
 
