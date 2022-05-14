@@ -1,33 +1,37 @@
 import React, { useState, memo } from 'react';
 import PropTypes from 'prop-types';
 
-function CategoriesType({ data, currentCategory, loadCondProductData }) {
-  const [isActive, setIsActive] = useState(false);
+function CategoriesType({ data, selectedCategory='', loadCondProductData }) {
+  const [isAccordianActive, setIsAccordianActive] = useState(false);
+  const [activeCategoryID, setactiveCategoryID] = useState(0);
 
   return (
     <div className="">
       <div className="">
         <div
-          style={{ display: isActive ? 'hidden' : '' }}
-          className="categoryType__accordian"
+          className="categoryType__accordian_active"
           onClick={() => {
-            setIsActive(!isActive);
+            setIsAccordianActive(!isAccordianActive);
           }}
         >
-          {currentCategory ? currentCategory : 'select category'}
+          {activeCategoryID == 0 ? 'select category' : selectedCategory}
         </div>
 
         <ul
-          className="categoryType__ul"
-          style={{ display: isActive ? 'block' : 'hidden' }}
-          onClick={() => setIsActive(!isActive)}
+          className={isAccordianActive ? "categoryType__ul_active" : "categoryType__ul"}
+          onClick={() => setIsAccordianActive(!isAccordianActive)}
         >
           {data.map((each) => (
             <li
-              className="categoryType__li"
+              className={
+                activeCategoryID === each.id
+                  ? 'categoryType__li-active'
+                  : 'categoryType__li'
+              }
               key={each.key}
               onClick={() => {
-                loadCondProductData(each.id);
+                loadCondProductData(each.id == activeCategoryID ? '' : each.id);
+                setactiveCategoryID((prev) => (prev == each.id ? 0 : each.id));
               }}
             >
               {each.name}

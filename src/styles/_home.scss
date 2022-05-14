@@ -12,7 +12,9 @@
   flex-direction: row;
   padding: 0.75rem;
   box-shadow: 0 1px 8px -4px rgb(0 0 0 / 10%), 0 6px 7px -4px rgb(0 0 0 / 10%);
-
+  @media screen and (max-width: 420px) {
+    margin: 0;
+  }
   &__img {
     flex-basis: 33.333333%;
     width: 400px;
@@ -24,12 +26,12 @@
       height: 200px;
     }
 
-    @media screen and (max-width: 700px) {
-      height: 150px;
+    @media screen and (max-width: 740px) {
+      height: 120px;
     }
 
-    @media screen and (max-width: 320px) {
-      height: 200px;
+    @media screen and (max-width: 420px) {
+      height: 70px;
     }
   }
 

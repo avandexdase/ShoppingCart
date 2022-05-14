@@ -60,7 +60,7 @@ li.sign-nav-item:nth-child(2) {
 
 #cart {
   background-color: colorsVar.$background-color;
-  height: 4rem;
+  height: 3rem;
   display: none;
   justify-content: center;
   align-items: center;
@@ -72,20 +72,16 @@ li.sign-nav-item:nth-child(2) {
 
 #dropdowncart {
   background-color: colorsVar.$background-color;
-  height: 4rem;
+  height: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  @media screen and (max-width: 1240px) {
-    display: none
-  }
 }
 
 @media screen and (max-width: 535px) {
 
   ul.nav-list,
-  .sign-list {
+  ul.sign-nav-list {
     display: none;
   }
 }

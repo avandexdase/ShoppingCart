@@ -13,6 +13,7 @@ header {
   >.wrapper {
     display: flex;
     align-items: center;
+    height: 4rem;
     @extend .container;
 
     .logoImg {

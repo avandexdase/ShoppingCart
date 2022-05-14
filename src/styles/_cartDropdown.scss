@@ -7,14 +7,10 @@
     border: 1px solid black;
     background-color: white;
     right: 17.3rem;
-    z-index: 5;
-    top: 5.4rem;
+    z-index: 1;
+    top: 4rem;
     width: 38%;
 
-
-    @media screen and (max-width: 1240px) {
-        display: none;
-    }
 
     &__header {
         display: flex;

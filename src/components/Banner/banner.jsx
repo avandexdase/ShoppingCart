@@ -33,7 +33,6 @@ function Banner({ banner }) {
           >
             <img
               src={each.bannerImageUrl}
-              style={{ width: '100%' }}
               className="swiper__img"
               alt={each.bannerImageAlt}
             />
@@ -47,9 +46,8 @@ function Banner({ banner }) {
           NEXT
         </span>
       </div>
-      <br />
 
-      <div style={{ textAlign: 'center' }}>
+      <div className='dot_container'>
         {banner.map((each) => (
           <span
             className={each.order === carouselId ? 'dot_active' : 'dot'}

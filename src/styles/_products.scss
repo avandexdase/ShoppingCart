@@ -106,7 +106,7 @@
   background-color: colorsVar.$background-color;
   color: white;
 
-  &__accordian {
+  &__accordian_active {
     display: none;
     margin: 1rem 0;
     background-color: colorsVar.$btn-background-color;
@@ -129,6 +129,20 @@
 
     @media screen and (max-width: 740px) {
       display: none;
+    }
+  }
+  &__ul_active {
+    border-top-width: 0px;
+    border-bottom-width: 1px;
+    border-color: rgb(226 232 240);
+    display: block;
+    margin: 0;
+    padding: 1rem;
+    color: black;
+    list-style: none;
+
+    @media screen and (max-width: 740px) {
+      display: block;
       background-color: #c91e50;
       color: white;
     }
@@ -139,6 +153,19 @@
     font-size: 1.25rem;
     line-height: 1.75rem;
     cursor: pointer;
+
+    @media screen and (max-width: 1024px) {
+      font-size: 1rem;
+      line-height: 1.25rem;
+      padding: 0.125rem;
+    }
+  }
+  &__li-active {
+    padding: 0.25rem;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    cursor: pointer;
+    background-color: colorsVar.$btn-background-color;
 
     @media screen and (max-width: 1024px) {
       font-size: 1rem;

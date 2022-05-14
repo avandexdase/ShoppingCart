@@ -9,28 +9,40 @@ function Products() {
   const location = useLocation();
   const [products, setProducts] = useState([]);
   const [categoryData, setCategoryData] = useState([]);
-  //
+  const [filteredProductData, setfilteredProductData] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('');
   const loadData = useCallback(async () => {
     let res = {};
     let category = {};
     try {
-      if (location?.state?.id) {
-        res = await axiosInstance.get(`products?category=${location.state.id}`);
-      } else {
-        res = await axiosInstance.get('products');
-      }
+      res = await axiosInstance.get('products');
       category = await axiosInstance.get('categories');
       setCategoryData(category.data);
       setProducts(res.data);
-    } catch (error) {}
+      if (location.state?.id)
+        loadfilteredProductDataOnPageLoad(location.state.id, res.data, category.data);
+      else setfilteredProductData(res.data);
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
-  const loadCondProductData = useCallback(async (id) => {
-    let prod = {};
-    try {
-      prod = await axiosInstance.get(`products?category=${id}`);
-      setProducts(prod.data);
-    } catch (error) {}
-  });
+  const loadfilteredProductDataOnPageLoad = (id, product, category) => {
+    const filteredData = product.filter((each) => each.category === id);
+    console.log(filteredData);
+    setfilteredProductData(filteredData);
+    setSelectedCategory(category.find((each) => each.id == id).name);
+  };
+  const loadCondProductData = (id) => {
+    let filteredData = [];
+    if (id === '') {
+      filteredData = products;
+      setSelectedCategory('');
+    } else {
+      filteredData = products.filter((each) => each.category === id);
+      setSelectedCategory(categoryData.find((each) => each.id == id).name);
+    }
+    setfilteredProductData(filteredData);
+  };
 
   useEffect(() => {
     loadData();
@@ -42,10 +54,11 @@ function Products() {
         <CategoriesType
           data={categoryData}
           loadCondProductData={loadCondProductData}
+          selectedCategory={selectedCategory}
         />
       </div>
       <div className="product">
-        {products.map((item) => (
+        {filteredProductData.map((item) => (
           <Product key={item.id} product={item} />
         ))}
       </div>

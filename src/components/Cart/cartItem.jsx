@@ -14,14 +14,14 @@ function CartItem({ cartItem }) {
             className="cartItem__btn"
             onClick={() => removeItemFromCart(cartItem)}
           >
-            &#x2D;
+            &#x02212;
           </button>
           <span className="cartItem__quantity">{cartItem.quantity}</span>
           <button
             className="cartItem__btn"
             onClick={() => addItemToCart(cartItem)}
           >
-            +
+            &#x0002B;
           </button>
           <span className="cartItem__remove">x</span>
           <span className="cartItem__price">{`Rs.${new Intl.NumberFormat(
