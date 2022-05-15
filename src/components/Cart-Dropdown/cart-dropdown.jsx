@@ -17,8 +17,8 @@ const CartDropdown = () => {
   };
   const startShopping = () => {
     toggleIsCartOpen();
-    navigate('/home')
-  }
+    navigate('/home');
+  };
   return (
     <div className="cart-dropdown">
       <header>

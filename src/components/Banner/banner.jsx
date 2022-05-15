@@ -47,7 +47,7 @@ function Banner({ banner }) {
         </span>
       </div>
 
-      <div className='dot_container'>
+      <div className="dot_container">
         {banner.map((each) => (
           <span
             className={each.order === carouselId ? 'dot_active' : 'dot'}

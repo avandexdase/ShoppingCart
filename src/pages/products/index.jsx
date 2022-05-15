@@ -10,7 +10,7 @@ function Products() {
   const [products, setProducts] = useState([]);
   const [categoryData, setCategoryData] = useState([]);
   const [filteredProductData, setfilteredProductData] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState(0);
   const loadData = useCallback(async () => {
     let res = {};
     let category = {};
@@ -20,26 +20,33 @@ function Products() {
       setCategoryData(category.data);
       setProducts(res.data);
       if (location.state?.id)
-        loadfilteredProductDataOnPageLoad(location.state.id, res.data, category.data);
+        loadfilteredProductDataOnPageLoad(
+          location.state.id,
+          res.data,
+          category.data
+        );
       else setfilteredProductData(res.data);
     } catch (error) {
       console.log(error);
     }
   }, []);
-  const loadfilteredProductDataOnPageLoad = (id, product, category) => {
+  const selectCategoryName = (id, categoryData) => {
+    const name = categoryData.find((each) => each.id === id).name;
+    setSelectedCategory(name);
+  };
+  const loadfilteredProductDataOnPageLoad = (id, product, categoryData) => {
     const filteredData = product.filter((each) => each.category === id);
-    console.log(filteredData);
     setfilteredProductData(filteredData);
-    setSelectedCategory(category.find((each) => each.id == id).name);
+    selectCategoryName(id, categoryData);
   };
   const loadCondProductData = (id) => {
     let filteredData = [];
-    if (id === '') {
+    if (id === 0) {
       filteredData = products;
       setSelectedCategory('');
     } else {
       filteredData = products.filter((each) => each.category === id);
-      setSelectedCategory(categoryData.find((each) => each.id == id).name);
+      selectCategoryName(id, categoryData);
     }
     setfilteredProductData(filteredData);
   };

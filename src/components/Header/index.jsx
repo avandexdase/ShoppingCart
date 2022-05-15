@@ -54,10 +54,6 @@ function Header() {
             {/* <ShoppingCartIcon height={24} width={24} fill="green" /> */}
             <span>{`${cartCount}Items`}</span>
           </div>
-          {/* <div id="cart" className="sign-nav-cart">
-            <ShoppingCartIcon height={24} width={24} fill="green" />
-            <Link to="/cart">{`${cartCount}Items`}</Link>
-          </div> */}
         </div>
         <div className="sign-nav-cartDropdown">
           {isCartOpen && <CartDropdown />}

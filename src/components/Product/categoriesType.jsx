@@ -1,10 +1,11 @@
 import React, { useState, memo } from 'react';
 import PropTypes from 'prop-types';
 
-function CategoriesType({ data, selectedCategory='', loadCondProductData }) {
+function CategoriesType({ data, selectedCategory, loadCondProductData }) {
   const [isAccordianActive, setIsAccordianActive] = useState(false);
-  const [activeCategoryID, setactiveCategoryID] = useState(0);
+  const [activeCategoryID, setactiveCategoryID] = useState(selectedCategory);
 
+  console.log(activeCategoryID);
   return (
     <div className="">
       <div className="">
@@ -14,23 +15,27 @@ function CategoriesType({ data, selectedCategory='', loadCondProductData }) {
             setIsAccordianActive(!isAccordianActive);
           }}
         >
-          {activeCategoryID == 0 ? 'select category' : selectedCategory}
+          {selectedCategory == '' ? 'select category' : selectedCategory}
         </div>
 
         <ul
-          className={isAccordianActive ? "categoryType__ul_active" : "categoryType__ul"}
+          className={
+            isAccordianActive ? 'categoryType__ul_active' : 'categoryType__ul'
+          }
           onClick={() => setIsAccordianActive(!isAccordianActive)}
         >
           {data.map((each) => (
             <li
               className={
-                activeCategoryID === each.id
+                selectedCategory === each.name
                   ? 'categoryType__li-active'
                   : 'categoryType__li'
               }
               key={each.key}
               onClick={() => {
-                loadCondProductData(each.id == activeCategoryID ? '' : each.id);
+                loadCondProductData(
+                  each.name == selectedCategory ? 0 : each.id
+                );
                 setactiveCategoryID((prev) => (prev == each.id ? 0 : each.id));
               }}
             >
