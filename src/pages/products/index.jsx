@@ -1,7 +1,6 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import Product from '../../components/Product';
 import CategoriesType from '../../components/Product/categoriesType';
-import { ThemeContext } from '../../context/themeContext';
 import axiosInstance from '../../utils/axiosInstance';
 import { useLocation } from 'react-router-dom';
 

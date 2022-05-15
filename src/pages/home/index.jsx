@@ -1,6 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import Categories from '../../components/Banner/categories';
-import { ThemeContext } from '../../context/themeContext';
 import axiosInstance from '../../utils/axiosInstance';
 import Banner from '../../components/Banner/banner';
 import '../../styles/_home.scss';
