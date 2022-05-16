@@ -43,7 +43,6 @@
     }
 
     &__footer {
-        margin: 1rem;
         background-color: white;
     }
 
@@ -54,12 +53,21 @@
     &__Checkoutbtn {
         background-color: colorsVar.$btn-background-color;
         border: none;
-        padding: 1rem;
+        padding: 0.725rem;
         color: white;
         display: flex;
         width: 94%;
         justify-content: space-between;
         cursor: pointer;
+    }
+
+    &__CheckoutbtnDesc {
+        margin: 0;
+    }
+
+    &__quantity {
+        font-size: 1rem;
+        font-weight: 100;
     }
 
 }

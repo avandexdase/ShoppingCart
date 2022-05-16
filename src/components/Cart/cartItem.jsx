@@ -11,33 +11,37 @@ function CartItem({ cartItem }) {
         alt={cartItem.sku}
         className="cartItem__img"
       />
-      <div className="cartItem__desc">
+      <div className="cartItem__details">
         <h3 className="cartItem__name">{cartItem.name}</h3>
-        <div>
-          <button
-            className="cartItem__btn"
-            onClick={() => removeItemFromCart(cartItem)}
-          >
-            &#x02212;
-          </button>
-          <span className="cartItem__quantity">{cartItem.quantity}</span>
-          <button
-            className="cartItem__btn"
-            onClick={() => addItemToCart(cartItem)}
-          >
-            &#x0002B;
-          </button>
-          <span className="cartItem__remove">x</span>
-          <span className="cartItem__price">{`Rs.${new Intl.NumberFormat(
-            'en-IN',
-            {
-              style: 'currency',
-              currency: 'INR',
-            }
-          ).format(cartItem.price)}`}</span>
-          <span className="cartItem__total">{`${
-            cartItem.quantity * cartItem.price
-          }`}</span>
+        <div className='cartItem__desc'>
+          <div>
+            <button
+              className="cartItem__btn"
+              onClick={() => removeItemFromCart(cartItem)}
+            >
+              &#x02212;
+            </button>
+            <span className="cartItem__quantity">{cartItem.quantity}</span>
+            <button
+              className="cartItem__btn"
+              onClick={() => addItemToCart(cartItem)}
+            >
+              &#x0002B;
+            </button>
+            <span className="cartItem__remove">x</span>
+            <span className="cartItem__price">{`Rs.${new Intl.NumberFormat(
+              'en-IN',
+              {
+                style: 'currency',
+                currency: 'INR',
+              }
+            ).format(cartItem.price)}`}</span>
+          </div>
+          <div>
+            <span className="cartItem__total">{`Rs.${
+              cartItem.quantity * cartItem.price
+            }`}</span>
+          </div>
         </div>
       </div>
     </div>

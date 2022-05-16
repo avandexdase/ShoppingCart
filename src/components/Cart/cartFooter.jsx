@@ -1,11 +1,29 @@
 import React from 'react';
 
-function CartFooter() {
+function CartFooter({cartItems, startShopping, navigateToCart, cartTotalValue}) {
+    console.log(cartItems);
   return (
-    <div className="cartFooter">
-      <img src="../../../static/images/lowest-price.png" alt="lowest_price" />
-      <span>You Won't find it cheaper anywhere</span>
-    </div>
+    <>
+      {cartItems.length > 0 ? (
+        <footer className="cart-dropdown__footer">
+          <p className="cart-dropdown__promo">
+            Promocode can be applied on payment page
+          </p>
+          <div className="cart-dropdown__Checkoutbtn" onClick={navigateToCart}>
+            <p className="cart-dropdown__CheckoutbtnDesc">
+              Proceed to Checkout
+            </p>
+            <p className="cart-dropdown__CheckoutbtnDesc">{`Rs.${cartTotalValue}`}</p>
+          </div>
+        </footer>
+      ) : (
+        <footer>
+          <div className="cart-dropdown__Checkoutbtn" onClick={startShopping}>
+            start shopping
+          </div>
+        </footer>
+      )}
+    </>
   );
 }
 

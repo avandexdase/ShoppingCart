@@ -4,6 +4,7 @@ import CartItem from '../Cart/cartItem';
 import '../../styles/index.scss';
 import { useNavigate } from 'react-router-dom';
 import CartFooter from '../Cart/cartFooter';
+import LowestPriceBanner from '../Cart/lowestPriceBanner';
 
 const CartDropdown = () => {
   const navigate = useNavigate();
@@ -23,7 +24,15 @@ const CartDropdown = () => {
     <div className="cart-dropdown">
       <header>
         <div className="cart-dropdown__header">
-          <h2>Cart</h2>
+          <h2>
+            My Cart
+            {cartItems.length > 0 ? (
+              <span className="cart-dropdown__quantity">{`(${cartItems.length} item)`}</span>
+            ) : (
+              ''
+            )}
+          </h2>
+
           <button
             className="cart-dropdown__closeBtn"
             onClick={toggleIsCartOpen}
@@ -42,25 +51,14 @@ const CartDropdown = () => {
           <span className="cart-dropdown__message">Your cart is empty</span>
         )}
 
-        <CartFooter />
+        {cartItems.length > 0 && <LowestPriceBanner />}
       </div>
-      {cartItems.length > 0 ? (
-        <footer className="cart-dropdown__footer">
-          <p className="cart-dropdown__promo">
-            Promocode can be applied on payment page
-          </p>
-          <div className="cart-dropdown__Checkoutbtn" onClick={navigateToCart}>
-            <p>Proceed to Checkout</p>
-            <p>{cartTotalValue}</p>
-          </div>
-        </footer>
-      ) : (
-        <footer>
-          <div className="cart-dropdown__Checkoutbtn" onClick={startShopping}>
-            start shopping
-          </div>
-        </footer>
-      )}
+      <CartFooter
+        cartItems={cartItems}
+        startShopping={startShopping}
+        navigateToCart={navigateToCart}
+        cartTotalValue={cartTotalValue}
+      />
     </div>
   );
 };
