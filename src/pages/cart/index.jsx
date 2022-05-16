@@ -14,7 +14,7 @@ export default function Cart() {
     navigate('/home');
   };
   return (
-    <div className="">
+    <div className="cart">
       <header>
         <div className="cart-dropdown__header">
           <h2>

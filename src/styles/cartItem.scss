@@ -23,10 +23,6 @@
     }
 
     &__name {
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
         margin: 1rem 0;
     }
 
@@ -41,15 +37,11 @@
     }
 
     &__quantity {
-        margin: 0 1rem;
+        margin: 0 0.5rem;
     }
 
     &__remove {
-        margin: 0 1rem;
-    }
-
-    &__price {
-        margin-right: 1rem;
+        margin: 0 0.5rem;
     }
 
     &__total {

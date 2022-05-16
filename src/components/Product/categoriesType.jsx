@@ -10,7 +10,11 @@ function CategoriesType({ data, selectedCategory, loadCondProductData }) {
     <div className="">
       <div className="">
         <div
-          className="categoryType__accordian_active"
+          className={
+            isAccordianActive
+              ? 'categoryType__accordian'
+              : 'categoryType__accordian_active'
+          }
           onClick={() => {
             setIsAccordianActive(!isAccordianActive);
           }}

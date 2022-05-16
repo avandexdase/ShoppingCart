@@ -19,6 +19,11 @@ header {
     .logoImg {
       height: 3rem;
       padding: 1rem 0;
+      width: 7rem;
+      @media screen and (max-width: 375px) {
+        height: 2rem;
+        width: 4rem;
+      }
     }
 
     nav {

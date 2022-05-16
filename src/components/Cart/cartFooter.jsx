@@ -1,7 +1,6 @@
 import React from 'react';
 
 function CartFooter({cartItems, startShopping, navigateToCart, cartTotalValue}) {
-    console.log(cartItems);
   return (
     <>
       {cartItems.length > 0 ? (

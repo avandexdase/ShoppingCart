@@ -10,30 +10,32 @@ function Product({ product }) {
   return (
     <div key={product.id} className="product_card">
       <h1 className="product_card__name">{product.name}</h1>
-      <div>
+      <div className="product_card__small_card">
         <img
           src={product.imageURL}
           alt={product.name}
           className="product_card__img"
         />
-
-        <div className="product_card__desc">
-          <p className="product_card__desc-content">{product.description}</p>
+        <div className="product_card__desc_btn">
+          <div className="product_card__desc">
+            <p className="product_card__desc-content">{product.description}</p>
+          </div>
+          <button
+            type="button"
+            onClick={addToCart}
+            className="product_card__sm-btn"
+          >
+            Buy Now
+            <span>
+              {`@${new Intl.NumberFormat('en-IN', {
+                style: 'currency',
+                currency: 'INR',
+              }).format(product.price)}`}
+            </span>
+          </button>
         </div>
       </div>
-      <button
-        type="button"
-        onClick={addToCart}
-        className="product_card__sm-btn"
-      >
-        Buy Now
-        <span>
-          {`@${new Intl.NumberFormat('en-IN', {
-            style: 'currency',
-            currency: 'INR',
-          }).format(product.price)}`}
-        </span>
-      </button>
+
       <div className="product_card__price">
         <span>
           {`MRP ${new Intl.NumberFormat('en-IN', {
