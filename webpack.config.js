@@ -1,12 +1,11 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: "./src/index.jsx",
+  entry: './src/index.jsx',
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "main.js",
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'main.js',
     publicPath: '/',
   },
   mode: 'development',
@@ -23,12 +22,12 @@ module.exports = {
       {
         test: /\.(png|svg|jpe?g|gif|ico)$/,
         exclude: /node_modules/,
-        use: ["file-loader?name=[name].[ext]"],
+        use: ['file-loader?name=[name].[ext]'],
       },
       {
         test: /\.s[ac]ss$/i,
         exclude: /node_modules/,
-        use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
       },
       {
         test: /\.svg$/i,
@@ -39,18 +38,18 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/index.html",
-      filename: "index.html",
+      template: './public/index.html',
+      filename: 'index.html',
     }),
   ],
   devServer: {
     static: {
-      directory: path.join(__dirname, "static"),
-      publicPath: "/static",
+      directory: path.join(__dirname, 'static'),
+      publicPath: '/static',
     },
     compress: true,
     port: 9000,
-    open: true,    
+    open: true,
     historyApiFallback: true,
   },
 };

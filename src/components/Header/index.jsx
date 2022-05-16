@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-// import ShoppingCartIcon from '../../assets/icons/shopping_cart.svg';
 import logo from '../../../static/images/logo.png';
 import logo2x from '../../../static/images/logo_2x.png';
 import CartDropdown from '../Cart-Dropdown/cart-dropdown';
@@ -40,7 +39,6 @@ function Header() {
               </Link>
             </li>
             <li className="sign-nav-item">
-              {' '}
               <Link to="/register" className="sign-nav-link">
                 Register
               </Link>
@@ -51,7 +49,11 @@ function Header() {
             className="sign-nav-cart"
             onClick={toggleIsCartOpen}
           >
-            {/* <ShoppingCartIcon height={24} width={24} fill="green" /> */}
+            <img
+              alt="cartLogo"
+              src="../../../static/images/shoppingcart.svg"
+              className="sign-nav-cart-log0"
+            />
             <span>{`${cartCount}Items`}</span>
           </div>
         </div>
