@@ -1,7 +1,5 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../../static/images/logo.png';
-import logo2x from '../../../static/images/logo_2x.png';
 import CartDropdown from '../Cart-Dropdown/cart-dropdown';
 import { CartContext } from '../../context/cartContext';
 function Header() {
@@ -13,8 +11,15 @@ function Header() {
       <div className="wrapper">
         <div className="logo">
           <picture>
-            <source srcSet={logo} media="(min-width: 600px)" />
-            <img src={logo2x} alt="Logo" className="logoImg" />
+            <source
+              srcSet="'../../../public/static/images/logo.png"
+              media="(min-width: 600px)"
+            />
+            <img
+              src="../../../public/static/images/logo_2x.png"
+              alt="Logo"
+              className="logoImg"
+            />
           </picture>
         </div>
         <nav className="">
@@ -51,7 +56,7 @@ function Header() {
           >
             <img
               alt="cartLogo"
-              src="../../../static/images/shoppingcart.svg"
+              src="../../../public/static/images/shoppingcart.svg"
               className="sign-nav-cart-log0"
             />
             <span>{`${cartCount}Items`}</span>
