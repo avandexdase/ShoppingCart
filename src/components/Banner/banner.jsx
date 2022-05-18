@@ -20,7 +20,7 @@ function Banner({ banner }) {
     } else slideIndex = n;
     setCarouselId(slideIndex);
   }
-  return (
+  return banner.length > 0 ? (
     <>
       <div className="slideshow-container">
         {banner.map((each) => (
@@ -56,7 +56,7 @@ function Banner({ banner }) {
         ))}
       </div>
     </>
-  );
+  ) : null;
 }
 
 Banner.propTypes = {

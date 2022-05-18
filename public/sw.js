@@ -6,12 +6,16 @@ this.addEventListener("install", (event) => {
       cache.addAll([
         "/",
         'main.js',
-        'public/static/images/logo_2x.png',
-        'public/static/images/shoppingcart.svg',
+        'static/images/logo_2x.png',
+        'static/images/shoppingcart.svg',
         "favicon.ico",
-        "public/manifest.json",
+        "manifest.json",
         "maskable_icon_x192.png",
-        "public/static/images/logo.png"
+        "static/images/logo.png",
+        "/home",
+        "/products",
+        "/register",
+        "/cart"
       ]);
     })
   );
@@ -20,6 +24,12 @@ this.addEventListener("install", (event) => {
 
 this.addEventListener("fetch", (event) => {
   if (!navigator.onLine) {
+    if(event.request.url == "http://localhost:9000/favicon.ico")
+    event.waitUntil(
+      this.registration.showNotification("Apna Bazar", {
+        body:"your offline please connect to network"
+      })
+      );
   event.respondWith(
       caches.match(event.request).then((result) => {
         if (result) return result;
