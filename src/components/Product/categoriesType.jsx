@@ -5,7 +5,6 @@ function CategoriesType({ data, selectedCategory, loadCondProductData }) {
   const [isAccordianActive, setIsAccordianActive] = useState(false);
   const [activeCategoryID, setactiveCategoryID] = useState(selectedCategory);
 
-  console.log(activeCategoryID);
   return (
     <div className="">
       <div className="">

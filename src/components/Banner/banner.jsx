@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 function Banner({ banner }) {
   const [carouselId, setCarouselId] = useState(1);
-
   function plusSlides(n) {
     showSlides(carouselId + n);
   }

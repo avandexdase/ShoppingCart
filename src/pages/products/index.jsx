@@ -25,9 +25,7 @@ function Products() {
           category.data
         );
       else setfilteredProductData(res.data);
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   }, []);
   const selectCategoryName = (id, categoryData) => {
     const name = categoryData.find((each) => each.id === id).name;

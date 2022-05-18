@@ -12,11 +12,11 @@ function Header() {
         <div className="logo">
           <picture>
             <source
-              srcSet="'../../../public/static/images/logo.png"
-              media="(min-width: 600px)"
+              srcSet="'../../../static/images/logo.png"
+              media="(min-width: 1024px)"
             />
             <img
-              src="../../../public/static/images/logo_2x.png"
+              src="../../../static/images/logo_2x.png"
               alt="Logo"
               className="logoImg"
             />
@@ -56,7 +56,7 @@ function Header() {
           >
             <img
               alt="cartLogo"
-              src="../../../public/static/images/shoppingcart.svg"
+              src="../../../static/images/shoppingcart.svg"
               className="sign-nav-cart-log0"
             />
             <span>{`${cartCount}Items`}</span>

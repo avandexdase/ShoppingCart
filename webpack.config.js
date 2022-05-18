@@ -1,10 +1,11 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
-  entry: './src/index.jsx',
+  entry: path.join(__dirname, 'src', 'index.jsx'),
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'build'),
     filename: 'main.js',
     publicPath: '/',
   },
@@ -38,14 +39,19 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html',
-      filename: 'index.html',
+      template: path.join(__dirname, 'public', 'index.html'),
+      publicPath: '/',
+      filename: './index.html',
+      favicon: './public/favicon.ico',
+    }),
+    new webpack.ProvidePlugin({
+      process: 'process/browser',
     }),
   ],
   devServer: {
     static: {
-      directory: path.join(__dirname, 'static'),
-      publicPath: '/static',
+      directory: path.join(__dirname, 'public'),
+      publicPath: '/',
     },
     compress: true,
     port: 9000,
