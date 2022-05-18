@@ -1,5 +1,6 @@
 import React, { useState, memo } from 'react';
 import PropTypes from 'prop-types';
+import ExpandMore from '../../icons/expandMore';
 
 function CategoriesType({ data, selectedCategory, loadCondProductData }) {
   const [isAccordianActive, setIsAccordianActive] = useState(false);
@@ -9,16 +10,13 @@ function CategoriesType({ data, selectedCategory, loadCondProductData }) {
     <div className="">
       <div className="">
         <div
-          className={
-            isAccordianActive
-              ? 'categoryType__accordian'
-              : 'categoryType__accordian_active'
-          }
+          className="categoryType__accordian"
           onClick={() => {
             setIsAccordianActive(!isAccordianActive);
           }}
         >
           {selectedCategory == '' ? 'select category' : selectedCategory}
+          <ExpandMore />
         </div>
 
         <ul

@@ -61,11 +61,15 @@ function Products() {
           selectedCategory={selectedCategory}
         />
       </div>
-      <div className="product">
-        {filteredProductData.map((item) => (
-          <Product key={item.id} product={item} />
-        ))}
-      </div>
+      {filteredProductData.length > 0 ? (
+        <div className="product">
+          {filteredProductData.map((item) => (
+            <Product key={item.id} product={item} />
+          ))}
+        </div>
+      ) : (
+        <div className="NoProduct">No product available</div>
+      )}
     </div>
   );
 }

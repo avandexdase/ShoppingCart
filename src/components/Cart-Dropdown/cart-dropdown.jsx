@@ -5,6 +5,7 @@ import '../../styles/index.scss';
 import { useNavigate } from 'react-router-dom';
 import CartFooter from '../Cart/cartFooter';
 import LowestPriceBanner from '../Cart/lowestPriceBanner';
+import Close from '../../icons/close';
 
 const CartDropdown = () => {
   const navigate = useNavigate();
@@ -37,7 +38,7 @@ const CartDropdown = () => {
             className="cart-dropdown__closeBtn"
             onClick={toggleIsCartOpen}
           >
-            &#10060;
+            <Close />
           </button>
         </div>
       </header>

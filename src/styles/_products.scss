@@ -89,6 +89,9 @@
 
     @media screen and (min-width: 740px) {
       display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      align-items: center;
     }
   }
 
@@ -97,6 +100,7 @@
     color: white;
     border: none;
     padding: 0.5rem 1rem;
+    font-size: 12px;
 
     @media screen and (max-width: 740px) {
       display: none;
@@ -136,9 +140,9 @@
   background-color: colorsVar.$background-color;
   color: white;
 
-  &__accordian_active {
+  &__accordian {
     display: none;
-    margin: 1rem 0;
+    margin: 1rem 0 0 0;
     background-color: colorsVar.$btn-background-color;
     padding: 1rem;
 
@@ -147,9 +151,6 @@
     }
   }
 
-  &__accordian {
-    display: none;
-  }
 
   &__ul {
     border-top-width: 0px;
@@ -157,7 +158,7 @@
     border-color: rgb(226 232 240);
     display: block;
     margin: 0;
-    padding: 0;
+    padding: 1rem 0 0 0;
     color: black;
     list-style: none;
 
@@ -172,7 +173,7 @@
     border-color: rgb(226 232 240);
     display: block;
     margin: 0;
-    padding: 0;
+    padding: 1rem 0 0 0;
     color: black;
     list-style: none;
 
@@ -190,7 +191,7 @@
     cursor: pointer;
 
     @media screen and (max-width: 1024px) {
-      font-size: 1rem;
+      font-size: 0.825rem;
       line-height: 1.25rem;
       padding: 0.125rem;
     }
@@ -224,4 +225,11 @@
   @media screen and (max-width: 740px) {
     display: block;
   }
+}
+
+.NoProduct {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
 }

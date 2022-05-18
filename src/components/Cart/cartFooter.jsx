@@ -1,6 +1,12 @@
 import React from 'react';
+import NavigateNext from '../../icons/navigateNext';
 
-function CartFooter({cartItems, startShopping, navigateToCart, cartTotalValue}) {
+function CartFooter({
+  cartItems,
+  startShopping,
+  navigateToCart,
+  cartTotalValue,
+}) {
   return (
     <>
       {cartItems.length > 0 ? (
@@ -12,7 +18,10 @@ function CartFooter({cartItems, startShopping, navigateToCart, cartTotalValue}) 
             <p className="cart-dropdown__CheckoutbtnDesc">
               Proceed to Checkout
             </p>
-            <p className="cart-dropdown__CheckoutbtnDesc">{`Rs.${cartTotalValue}`}</p>
+            <div>
+              <p className="cart-dropdown__CheckoutbtnDesc">{`Rs.${cartTotalValue}`}</p>
+              <NavigateNext />
+            </div>
           </div>
         </footer>
       ) : (

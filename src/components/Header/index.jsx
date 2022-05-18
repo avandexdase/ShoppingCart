@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import CartDropdown from '../Cart-Dropdown/cart-dropdown';
 import { CartContext } from '../../context/cartContext';
+import Cart from '../../icons/shoppingCart';
 function Header() {
   const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
 
@@ -54,11 +55,13 @@ function Header() {
             className="sign-nav-cart"
             onClick={toggleIsCartOpen}
           >
-            <img
+            {/* <img
               alt="cartLogo"
               src="../../../static/images/shoppingcart.svg"
               className="sign-nav-cart-log0"
-            />
+            /> */}
+
+            <Cart />
             <span>{`${cartCount}Items`}</span>
           </div>
         </div>

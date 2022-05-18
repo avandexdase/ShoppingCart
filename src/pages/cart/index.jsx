@@ -20,17 +20,17 @@ export default function Cart() {
           <h2>
             My Cart
             {cartItems.length > 0 ? (
-              <span className='cart-dropdown__quantity'>{`(${cartItems.length} item)`}</span>
+              <span className="cart-dropdown__quantity">{`(${cartItems.length} item)`}</span>
             ) : (
               ''
             )}
           </h2>
-          <button
+          {/* <button
             className="cart-dropdown__closeBtn"
             onClick={() => navigate(-1)}
           >
             &#10060;
-          </button>
+          </button> */}
         </div>
       </header>
       <div className="cart-dropdown__items">

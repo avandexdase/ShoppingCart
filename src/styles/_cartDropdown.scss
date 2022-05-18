@@ -67,6 +67,9 @@
 
     &__CheckoutbtnDesc {
         margin: 0;
+        display: inline;
+        margin-right: 1rem;
+        vertical-align: super;
     }
 
     &__quantity {

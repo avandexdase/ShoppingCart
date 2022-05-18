@@ -7,7 +7,6 @@ this.addEventListener("install", (event) => {
         "/",
         'main.js',
         'static/images/logo_2x.png',
-        'static/images/shoppingcart.svg',
         "favicon.ico",
         "manifest.json",
         "maskable_icon_x192.png",
