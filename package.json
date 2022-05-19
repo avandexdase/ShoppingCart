@@ -7,7 +7,7 @@
     "build": "webpack",
     "start": "webpack serve --open",
     "start:server": "json-server db.json -m ./node_modules/json-server-auth --port 3000",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -29,12 +29,15 @@
   "devDependencies": {
     "@babel/core": "^7.17.10",
     "@babel/plugin-transform-runtime": "^7.17.10",
-    "@babel/preset-env": "^7.17.10",
-    "@babel/preset-react": "^7.16.7",
+    "@babel/preset-env": "^7.17.12",
+    "@babel/preset-react": "^7.17.12",
     "@svgr/webpack": "^6.2.1",
     "@tailwindcss/forms": "^0.5.1",
     "@tailwindcss/line-clamp": "^0.4.0",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.2.0",
     "autoprefixer": "^10.4.7",
+    "babel-jest": "^28.1.0",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
     "eslint": "^8.14.0",
@@ -45,11 +48,15 @@
     "eslint-plugin-react-hooks": "^4.5.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^28.1.0",
+    "jest-environment-jsdom": "^28.1.0",
     "json-server": "^0.17.0",
     "json-server-auth": "^2.1.0",
     "postcss": "^8.4.13",
     "postcss-loader": "^6.2.1",
     "prettier": "2.6.2",
+    "react-test-renderer": "^18.1.0",
     "sass": "^1.51.0",
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.1",
@@ -66,5 +73,11 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.3.0"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^.+\\.(css|less|scss)$": "identity-obj-proxy"
+    },
+    "testEnvironment": "jsdom"
   }
 }

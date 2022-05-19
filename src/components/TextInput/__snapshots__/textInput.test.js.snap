@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextInput /> 1`] = `
+<div
+  className="form-field"
+>
+  <div
+    className="form-field__control"
+  >
+    <input
+      className="form-field__input"
+      id="abc"
+      name="abc"
+      onBlur={[MockFunction]}
+      onChange={[MockFunction]}
+      placeholder=" "
+      type="text"
+      value="ram"
+    />
+    <label
+      className="form-field__label"
+      htmlFor="abc"
+    >
+      name
+    </label>
+  </div>
+  <div
+    className="form-field__bar"
+  />
+</div>
+`;
