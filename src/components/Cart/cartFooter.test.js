@@ -58,7 +58,7 @@ describe('<CartFooter />', () => {
     expect(screen.getByTestId('cartNavigateBtn')).toHaveTextContent('0');
   });
 
-  test('if there is not cartItems added in cart', () => {
+  test('if there is no cartItems added in cart', () => {
     render(
       <CartFooter cartItems={[]} handleClick={handleClick} cartTotalValue="0" />
     );

@@ -5,8 +5,12 @@ function CustomForm({ fields, btnTitle, pagedescription, ...props }) {
   return (
     <>
       <div className="">
-        <h1 className="">{btnTitle}</h1>
-        <p className="">{pagedescription}</p>
+        <h1 data-testid="customFormTitle" className="">
+          {btnTitle}
+        </h1>
+        <p data-testid="customFormDescription" className="">
+          {pagedescription}
+        </p>
       </div>
       <div className="">
         <Formik {...props}>
@@ -16,9 +20,11 @@ function CustomForm({ fields, btnTitle, pagedescription, ...props }) {
                 <Field key={x.name} {...x} />
               ))}
               <button
+                role="button"
                 type="submit"
                 className="btn"
                 disabled={!(dirty && isValid)}
+                data-testid="customFormbtn"
               >
                 {btnTitle}
               </button>

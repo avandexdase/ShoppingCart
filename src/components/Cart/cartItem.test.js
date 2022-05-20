@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import CartItem from './cartItem';
 import '@testing-library/jest-dom/extend-expect';
 import '../../styles/cartItem.scss';
 import { CartContext } from '../../context/cartContext';
+import { BrowserRouter } from 'react-router-dom';
 
 const cartItem = {
   name: 'Fresho Kiwi - Green, 3 pcs',
@@ -25,5 +26,34 @@ describe('<CartItem />', () => {
       'Fresho Kiwi - Green, 3 pcs'
     );
   });
-
+  test('remove item on button click', () => {
+    const addItemToCart = jest.fn();
+    const removeItemFromCart = jest.fn();
+    render(
+      <BrowserRouter>
+        <CartContext.Provider
+          value={{  addItemToCart, removeItemFromCart }}
+        >
+         <CartItem cartItem={cartItem} />
+        </CartContext.Provider>
+      </BrowserRouter>
+    );
+    fireEvent.click(screen.getByTestId('decrementCartBtn'));
+    expect(removeItemFromCart).toHaveBeenCalledTimes(1);
+  });
+  test('adds item on button click', () => {
+    const addItemToCart = jest.fn();
+    const removeItemFromCart = jest.fn();
+    render(
+      <BrowserRouter>
+        <CartContext.Provider
+          value={{  addItemToCart, removeItemFromCart }}
+        >
+         <CartItem cartItem={cartItem} />
+        </CartContext.Provider>
+      </BrowserRouter>
+    );
+    fireEvent.click(screen.getByTestId('incrementCartBtn'));
+    expect(addItemToCart).toHaveBeenCalledTimes(1);
+  });
 });

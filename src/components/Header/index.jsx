@@ -26,12 +26,12 @@ function Header() {
         <nav className="">
           <ul className="nav-list">
             <li className="nav-item">
-              <Link to="/home" className="nav-link">
+              <Link data-testid="nav-Home" to="/home" className="nav-link">
                 Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/products" className="nav-link">
+              <Link data-testid="nav-Product" to="/products" className="nav-link">
                 Products
               </Link>
             </li>

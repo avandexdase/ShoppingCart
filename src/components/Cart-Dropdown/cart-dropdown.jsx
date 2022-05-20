@@ -25,10 +25,13 @@ const CartDropdown = () => {
     <div className="cart-dropdown">
       <header>
         <div className="cart-dropdown__header">
-          <h2>
+          <h2 data-testid="cart-dropdown-myCartText">
             My Cart
             {cartItems.length > 0 ? (
-              <span className="cart-dropdown__quantity">{`(${cartItems.length} item)`}</span>
+              <span
+                className="cart-dropdown__quantity"
+                data-testid="cart-dropdown-quantity"
+              >{`(${cartItems.length} item)`}</span>
             ) : (
               ''
             )}
@@ -37,6 +40,7 @@ const CartDropdown = () => {
           <button
             className="cart-dropdown__closeBtn"
             onClick={toggleIsCartOpen}
+            data-testid="cart_dropdown_closeBtn"
           >
             <Close />
           </button>

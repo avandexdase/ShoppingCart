@@ -1,5 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`LowestPriceBanner 1`] = `
+<div
+  className="lowestPriceBanner"
+>
+  <img
+    alt="lowest_price"
+    src="../../../static/images/lowest-price.png"
+  />
+  <span>
+    You Won't find it cheaper anywhere
+  </span>
+</div>
+`;
+
 exports[`changes the class when hovered 1`] = `
 <div
   className="lowestPriceBanner"

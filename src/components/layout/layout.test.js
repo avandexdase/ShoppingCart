@@ -1,10 +1,13 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
-import MainLayout from './MainLayout';
+import MainLayout from '../layout/MainLayout';
 
-it('<footer />', () => {
+it('<MainLayout />', () => {
   const component = renderer.create(
-    <MainLayout />,
+    <BrowserRouter>
+      <MainLayout />
+    </BrowserRouter>
   );
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot();
