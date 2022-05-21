@@ -1,11 +1,27 @@
-import React, { memo, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { useSwipeable } from 'react-swipeable';
 
 function Banner({ banner }) {
   const [carouselId, setCarouselId] = useState(1);
+  const [paused, setPaused] = useState(false);
   function plusSlides(n) {
     showSlides(carouselId + n);
   }
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!paused) showSlides(carouselId + 1);
+    }, 2000);
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+      }
+    };
+  });
+  const handlers = useSwipeable({
+    onSwipedLeft: () => showSlides(carouselId + 1),
+    onSwipedRight: () => showSlides(carouselId - 1),
+  });
 
   function currentSlide(n) {
     showSlides(n);
@@ -29,6 +45,9 @@ function Banner({ banner }) {
               carouselId == each.order ? 'swiper__item_active' : 'swiper__item'
             }
             key={each.order}
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+            {...handlers}
           >
             <img
               src={each.bannerImageUrl}

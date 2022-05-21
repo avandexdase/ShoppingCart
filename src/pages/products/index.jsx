@@ -1,30 +1,35 @@
-import React, { useEffect, useCallback, useState } from 'react';
+import React, { useEffect, useCallback, useState, useContext } from 'react';
 import Product from '../../components/Product';
 import CategoriesType from '../../components/Product/categoriesType';
 import axiosInstance from '../../utils/axiosInstance';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/authContext';
 
 function Products() {
   const location = useLocation();
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [categoryData, setCategoryData] = useState([]);
   const [filteredProductData, setfilteredProductData] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(0);
+  const { isAuthenticated } = useContext(AuthContext);
   const loadData = useCallback(async () => {
     let res = {};
     let category = {};
     try {
-      res = await axiosInstance.get('products');
-      category = await axiosInstance.get('categories');
-      setCategoryData(category.data);
-      setProducts(res.data);
-      if (location.state?.id)
-        loadfilteredProductDataOnPageLoad(
-          location.state.id,
-          res.data,
-          category.data
-        );
-      else setfilteredProductData(res.data);
+      if (isAuthenticated) {
+        res = await axiosInstance.get('products');
+        category = await axiosInstance.get('categories');
+        setCategoryData(category.data);
+        setProducts(res.data);
+        if (location.state?.id)
+          loadfilteredProductDataOnPageLoad(
+            location.state.id,
+            res.data,
+            category.data
+          );
+        else setfilteredProductData(res.data);
+      } else navigate('/');
     } catch (error) {}
   }, []);
   const selectCategoryName = (id, categoryData) => {

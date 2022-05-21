@@ -47,6 +47,9 @@
   user-select: none;
   background-color: rgba(0, 0, 0, 0.3);
   opacity: 0.4;
+  @media  screen and (max-width:400px) {
+    display: none;
+  }
 }
 
 .prev:hover,

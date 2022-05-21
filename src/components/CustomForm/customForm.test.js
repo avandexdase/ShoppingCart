@@ -26,7 +26,8 @@ describe('<CustomForm />', () => {
     expect(screen.getByTestId('customFormTitle')).toHaveTextContent('Login');
   });
   test('calling login function on onSubmit', async () => {
-    const handleLogin = jest.fn({
+    const handleLogin = jest.fn();
+    handleLogin.mockReturnValue({
       email: 'john@rendomemail.com',
       password: 'qwer',
     });
