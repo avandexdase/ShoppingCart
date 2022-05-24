@@ -5,7 +5,7 @@ const webpack = require('webpack');
 module.exports = {
   entry: path.join(__dirname, 'src', 'index.jsx'),
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
     publicPath: '/',
   },
