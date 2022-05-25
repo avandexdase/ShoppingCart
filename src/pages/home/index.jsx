@@ -13,12 +13,10 @@ function Home() {
   const { isAuthenticated } = useContext(AuthContext);
   const loadData = useCallback(async () => {
     try {
-      if (isAuthenticated) {
-        const bannerRes = await axiosInstance.get('banners');
-        setBannersData(bannerRes.data);
-        const res = await axiosInstance.get('categories');
-        setProducts(res.data);
-      } else navigate('/');
+      const bannerRes = await axiosInstance.get('banners');
+      setBannersData(bannerRes.data);
+      const res = await axiosInstance.get('categories');
+      setProducts(res.data);
     } catch (error) {}
   }, []);
 
@@ -27,9 +25,11 @@ function Home() {
   }, [loadData]);
 
   return (
-    <div  data-testid="homePage">
-      <Banner banner={bannersData} />
-      <div className="home_page">
+    <div data-testid="homePage">
+      <div data-testid="homeBanner">
+        <Banner banner={bannersData} />
+      </div>
+      <div className="home_page" data-testid="homeProducts">
         {products.map((each, index) => (
           <Categories key={each.id} data={each} index={index} />
         ))}

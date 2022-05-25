@@ -1,8 +1,16 @@
 import React from 'react';
-import { screen, render, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom';
+import {
+  screen,
+  render,
+  waitFor,
+  cleanup,
+  waitForElement,
+} from '@testing-library/react';
 import Banner from '../../components/Banner/banner';
-import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom';
+import axios from 'axios';
+jest.mock('axios');
+
 const data = [
   {
     bannerImageUrl: '/static/images/offers/offer1.jpg',
@@ -20,6 +28,7 @@ const data = [
   },
 ];
 describe('<Banner />', () => {
+  afterEach(cleanup);
   it('renders banner image', () => {
     const { getByAltText } = render(<Banner banner={data} />);
     const image = getByAltText('Independence Day Deal - 25% off on shampoo');
@@ -30,15 +39,13 @@ describe('<Banner />', () => {
     expect(screen.getByTestId('prevBtn')).toBeInTheDocument();
     expect(screen.getByTestId('nextBtn')).toBeInTheDocument();
   });
-//   it('test onClick of prev-next btn', () => {
-//     const prevslides = jest.fn();
-//     render(<Banner banner={data} />);
-//     const btn = screen.getByTestId('nextBtn')
-//     console.log(btn);
-//     userEvent.click(btn);
-//     // fireEvent.click(screen.getByTestId("nextBtn"))
-//     const user = userEvent.setup();
-//     user.click(screen.getByTestId('nextBtn'));
-//     expect(prevslides).toBeCalledTimes(1);
-//   });
+  it('renders home page correctly', async () => {
+    axios.get.mockResolvedValue({
+      data,
+    });
+    const { getByTestId, asFragment } = render(<Banner banner={data} />);
+    const listNode = await waitFor(() => getByTestId('banner'));
+    expect(listNode.children).toHaveLength(4);
+    expect(asFragment()).toMatchSnapshot();
+  });
 });

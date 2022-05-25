@@ -14,6 +14,7 @@ function CategoriesType({ data, selectedCategory, loadCondProductData }) {
           onClick={() => {
             setIsAccordianActive(!isAccordianActive);
           }}
+          data-testid='categoryAccordian'
         >
           {selectedCategory == '' ? 'select category' : selectedCategory}
           <ExpandMore />
@@ -24,6 +25,8 @@ function CategoriesType({ data, selectedCategory, loadCondProductData }) {
             isAccordianActive ? 'categoryType__ul_active' : 'categoryType__ul'
           }
           onClick={() => setIsAccordianActive(!isAccordianActive)}
+          data-testid='categoryUl'
+          key='categoryUl'
         >
           {data.map((each) => (
             <li
@@ -33,6 +36,7 @@ function CategoriesType({ data, selectedCategory, loadCondProductData }) {
                   : 'categoryType__li'
               }
               key={each.key}
+              data-testid={each.key}
               onClick={() => {
                 loadCondProductData(
                   each.name == selectedCategory ? 0 : each.id

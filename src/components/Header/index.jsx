@@ -31,7 +31,7 @@ function Header() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link data-testid="nav-Product" to="/products" className="nav-link">
+              <Link to="/products" className="nav-link">
                 Products
               </Link>
             </li>

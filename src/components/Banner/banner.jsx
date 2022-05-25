@@ -38,7 +38,7 @@ function Banner({ banner }) {
   }
   return banner.length > 0 ? (
     <>
-      <div className="slideshow-container">
+      <div className="slideshow-container" data-testid='banner'>
         {banner.map((each) => (
           <div
             className={

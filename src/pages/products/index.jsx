@@ -17,19 +17,17 @@ function Products() {
     let res = {};
     let category = {};
     try {
-      if (isAuthenticated) {
-        res = await axiosInstance.get('products');
-        category = await axiosInstance.get('categories');
-        setCategoryData(category.data);
-        setProducts(res.data);
-        if (location.state?.id)
-          loadfilteredProductDataOnPageLoad(
-            location.state.id,
-            res.data,
-            category.data
-          );
-        else setfilteredProductData(res.data);
-      } else navigate('/');
+      res = await axiosInstance.get('products');
+      category = await axiosInstance.get('categories');
+      setCategoryData(category.data);
+      setProducts(res.data);
+      if (location.state?.id)
+        loadfilteredProductDataOnPageLoad(
+          location.state.id,
+          res.data,
+          category.data
+        );
+      else setfilteredProductData(res.data);
     } catch (error) {}
   }, []);
   const selectCategoryName = (id, categoryData) => {

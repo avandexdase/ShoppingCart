@@ -1,5 +1,5 @@
 import React from 'react';
-import { getByTestId,fireEvent, render, screen } from '@testing-library/react';
+import { getByTestId, fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import Login from './index';
 import { BrowserRouter } from 'react-router-dom';
@@ -23,25 +23,19 @@ describe('<login />', () => {
       'Get Access to your Orders, Wishlist and Recommendations'
     );
   });
-  // it('submits form when button is clicked', () => {
-  //   const obSubmit = jest.fn();
-  //   const { getByTestId } = render(
-  //     <BrowserRouter>
-  //       <Login />
-  //     </BrowserRouter>
-  //   );
+  it('test value enter in input field', () => {
+    const { getByTestId } = render(
+      <BrowserRouter>
+        <Login />
+      </BrowserRouter>
+    );
 
-  //   const button = getByTestId('customFormbtn');
-  //   const email = getByTestId('email');
-  //   const password = getByTestId('password');
+    const email = getByTestId('email');
+    const password = getByTestId('password');
 
-  //   fireEvent.change(email, { target: { value: 'user@test.com' } });
-  //   fireEvent.change(password, { target: { value: 'Test1234' } });
-
-  //   fireEvent.click(button);
-
-  //   expect(obSubmit).toHaveBeenCalledTimes(1);
-  // });
+    fireEvent.change(email, { target: { value: 'user@test.com' } });
+    fireEvent.change(password, { target: { value: 'Test1234' } });
+    expect(getByTestId('email').value).toEqual('user@test.com');
+    expect(getByTestId('password').value).toEqual('Test1234');
+  });
 });
-
-

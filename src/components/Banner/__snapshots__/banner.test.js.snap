@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Banner /> renders home page correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="slideshow-container"
+    data-testid="banner"
+  >
+    <div
+      class="swiper__item_active"
+    >
+      <img
+        alt="Independence Day Deal - 25% off on shampoo"
+        class="swiper__img"
+        src="/static/images/offers/offer1.jpg"
+      />
+    </div>
+    <div
+      class="swiper__item"
+    >
+      <img
+        alt="Independence Day Deal - Rs120 off on surf"
+        class="swiper__img"
+        src="/static/images/offers/offer2.jpg"
+      />
+    </div>
+    <span
+      class="prev"
+      data-testid="prevBtn"
+    >
+      PREV
+    </span>
+    <span
+      class="next"
+      data-testid="nextBtn"
+    >
+      NEXT
+    </span>
+  </div>
+  <div
+    class="dot_container"
+  >
+    <span
+      class="dot_active"
+    />
+    <span
+      class="dot"
+    />
+  </div>
+</DocumentFragment>
+`;

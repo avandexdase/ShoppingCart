@@ -44,7 +44,6 @@ exports[`<MainLayout /> 1`] = `
           >
             <a
               className="nav-link"
-              data-testid="nav-Product"
               href="/products"
               onClick={[Function]}
             >

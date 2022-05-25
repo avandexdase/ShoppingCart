@@ -12,11 +12,16 @@ function Categories({ data, index }) {
         className="home_categories__img"
         src={data.imageUrl}
         alt={data.name}
+        data-testid="homecategoryImg"
       />
       {/* <div className="col-start-4 col-span-1 sm:hidden"></div> */}
       <div className="home_categories__Item">
-        <h2 className="home_categories__Name">{data.name}</h2>
-        <p className="home_categories__desc">{data.description}</p>
+        <h2 className="home_categories__Name" data-testid="homecategoryName">
+          {data.name}
+        </h2>
+        <p className="home_categories__desc" data-testid="homecategoryDesc">
+          {data.description}
+        </p>
         <button
           className="home_categories__explorebtn"
           onClick={() => handleSubmit(data)}

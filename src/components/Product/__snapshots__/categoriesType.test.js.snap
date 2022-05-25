@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<categoryType/> displayed the category 1`] = `
+<DocumentFragment>
+  <div
+    class=""
+  >
+    <div
+      class=""
+    >
+      <div
+        class="categoryType__accordian"
+        data-testid="categoryAccordian"
+      >
+        select category
+        <div
+          class="ExpandMore"
+        >
+          <svg
+            fill="white"
+            height="40"
+            width="40"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 25.625 10 15.625 11.958 13.667 20 21.708 28.042 13.667 30 15.667Z"
+            />
+          </svg>
+        </div>
+      </div>
+      <ul
+        class="categoryType__ul"
+        data-testid="categoryUl"
+      >
+        <li
+          class="categoryType__li"
+          data-testid="beverages"
+        >
+          Beverages
+        </li>
+        <li
+          class="categoryType__li"
+          data-testid="bakery-cakes-dairy"
+        >
+          Bakery Cakes and Dairy
+        </li>
+      </ul>
+    </div>
+  </div>
+</DocumentFragment>
+`;

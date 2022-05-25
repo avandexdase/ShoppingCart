@@ -9,7 +9,9 @@ function Product({ product }) {
 
   return (
     <div key={product.id} className="product_card">
-      <h1 className="product_card__name">{product.name}</h1>
+      <h1 className="product_card__name" data-testid="productCardName">
+        {product.name}
+      </h1>
       <div className="product_card__small_card">
         <img
           src={product.imageURL}
