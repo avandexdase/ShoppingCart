@@ -17,7 +17,7 @@ function CustomForm({ fields, btnTitle, pagedescription, ...props }) {
           {({ handleSubmit, isValid, dirty }) => (
             <form onSubmit={handleSubmit}>
               {fields.map((x) => (
-                <Field key={x.name} {...x} />
+                <Field data-testid={x.name} key={x.name} {...x} />
               ))}
               <button
                 role="button"

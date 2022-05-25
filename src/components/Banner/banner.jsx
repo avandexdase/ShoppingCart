@@ -57,10 +57,10 @@ function Banner({ banner }) {
           </div>
         ))}
 
-        <span className="prev" onClick={() => plusSlides(-1)}>
+        <span data-testid='prevBtn' className="prev" onClick={() => plusSlides(-1)}>
           PREV
         </span>
-        <span className="next" onClick={() => plusSlides(1)}>
+        <span data-testid='nextBtn' className="next" onClick={() => plusSlides(1)}>
           NEXT
         </span>
       </div>

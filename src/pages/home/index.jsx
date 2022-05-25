@@ -27,14 +27,14 @@ function Home() {
   }, [loadData]);
 
   return (
-    <>
+    <div  data-testid="homePage">
       <Banner banner={bannersData} />
       <div className="home_page">
         {products.map((each, index) => (
           <Categories key={each.id} data={each} index={index} />
         ))}
       </div>
-    </>
+    </div>
   );
 }
 
