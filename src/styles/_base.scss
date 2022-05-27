@@ -50,6 +50,7 @@ ul.nav-list {
 
   .sign-nav-cart {
     cursor: pointer;
+    position: relative;
 
   }
 
@@ -89,5 +90,17 @@ li.sign-nav-item:nth-child(2) {
   ul.nav-list,
   ul.sign-nav-list {
     display: none;
+  }
+}
+
+.sign-nav-cartDropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 38rem;
+  z-index: 500;
+
+  @media screen and (max-width:620px) {
+    width: 100vw;
   }
 }

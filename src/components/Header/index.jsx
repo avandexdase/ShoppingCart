@@ -50,23 +50,20 @@ function Header() {
               </Link>
             </li>
           </ul>
-          <div
-            id="dropdowncart"
-            className="sign-nav-cart"
-            onClick={toggleIsCartOpen}
-          >
+          <div className="sign-nav-cart">
             {/* <img
               alt="cartLogo"
               src="../../../static/images/shoppingcart.svg"
               className="sign-nav-cart-log0"
             /> */}
-
-            <Cart />
-            <span>{`${cartCount}Items`}</span>
+            <div id="dropdowncart" onClick={toggleIsCartOpen}>
+              <Cart />
+              <span>{`${cartCount}Items`}</span>
+            </div>
+            <div className="sign-nav-cartDropdown">
+              {isCartOpen && <CartDropdown />}
+            </div>
           </div>
-        </div>
-        <div className="sign-nav-cartDropdown">
-          {isCartOpen && <CartDropdown />}
         </div>
       </div>
     </header>

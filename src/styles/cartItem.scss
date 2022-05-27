@@ -24,6 +24,11 @@
 
     &__name {
         margin: 1rem 0;
+
+        @media screen and (max-width:500px) {
+            margin: 0.725rem 0;
+            font-size: medium;
+        }
     }
 
     &__btn {
@@ -35,6 +40,14 @@
         font-size: larger;
         color: white;
         padding: 2px;
+
+        @media screen and (max-width:500px) {
+            height: 1rem;
+            width: 1rem;
+            font-size: small;
+            padding: 0;
+            position: relative;
+        }
     }
 
     &__quantity {
